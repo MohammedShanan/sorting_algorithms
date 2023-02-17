@@ -2,7 +2,7 @@
 /**
  * prints - prints left, right, and merged halves
  * @arr: original or tmp array
- * @side: left, right, or merged half
+ * @msg: left, right, or merged half
  * @start: starting index
  * @end: ending index
  */
