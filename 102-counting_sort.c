@@ -19,15 +19,15 @@ void counting_sort(int *array, size_t size)
             k = array[i];
     }
     counts = malloc(sizeof(int) * (k + 1));
-    sorted = malloc(sizeof(int) * size);
     if (counts == NULL)
+        return;
+    sorted = malloc(sizeof(int) * size);
+    if (!sorted)
         return;
     for (j = 0; j < (k + 1); j++) /* memset counts array to 0 */
         counts[j] = 0;
     for (i = 0; i < size; i++) /* input counts */
-    {
         counts[array[i]] += 1;
-    }
     for (j = 0; j < k; j++) /* update counts array */
     {
         counts[j + 1] += counts[j];
