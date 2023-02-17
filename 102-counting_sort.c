@@ -6,40 +6,41 @@
  */
 void counting_sort(int *array, size_t size)
 {
-int *counts, *sorted_arr, indx, k = array[0];
-size_t i = 0;
-if (array == NULL || size < 2)
-return;
-for (i = 0; i < size; i++)
-k = array[i] > k ? array[i] : k;
-counts = malloc(sizeof(int) * (k + 1));
-if (counts == NULL)
-return;
-sorted_arr = malloc(sizeof(int) * size);
-if (sorted_arr == NULL)
-{
-free(counts);
-return;
-}
-for (indx = 0; indx < k + 1; indx++)
-counts[indx] = 0;
-for (i = 0; i < size; i++)
-{
-counts[array[i]] += 1;
-}
-for (indx = 0; indx < k; indx++)
-{
-counts[indx + 1] += counts[indx];
-}
-print_array(counts, k + 1);
-for (i = size; i > 0; i--)
-{
-indx = counts[array[i - 1]] - 1;
-sorted_arr[indx] = array[i - 1];
-counts[array[i - 1]] -= 1;
-}
-for (i = 0; i < size; i++)
-array[i] = sorted_arr[i];
-free(sorted_arr);
-free(counts);
+    size_t i;
+    int j, k;
+    int *counts, *sorted;
+
+    if (array == NULL || size < 2)
+        return;
+    k = array[0]; /* find max num to malloc size of new array */
+    for (i = 1; i < size; i++)
+    {
+        if (array[i] > k)
+            k = array[i];
+    }
+    counts = malloc(sizeof(int) * (k + 1));
+    sorted = malloc(sizeof(int) * size);
+    if (counts == NULL)
+        return;
+    for (j = 0; j < (k + 1); j++) /* memset counts array to 0 */
+        counts[j] = 0;
+    for (i = 0; i < size; i++) /* input counts */
+    {
+        counts[array[i]] += 1;
+    }
+    for (j = 0; j < k; j++) /* update counts array */
+    {
+        counts[j + 1] += counts[j];
+    }
+    print_array(counts, k + 1);
+    for (i = size; i > 0; i--)
+    {
+        j = counts[array[i - 1]] - 1;
+        sorted[j] = array[i - 1];
+        counts[array[i - 1]] -= 1;
+    }
+    for (i = 0; i < size; i++)
+        array[i] = sorted[i];
+    free(sorted);
+    free(counts);
 }
