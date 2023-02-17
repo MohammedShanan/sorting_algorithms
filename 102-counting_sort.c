@@ -24,14 +24,19 @@ return;
 for (indx = 0; indx < k + 1; indx++)
 counts[indx] = 0;
 for (i = 0; i < size; i++)
-counts[array[i]] += 1;
-for (indx = 0; indx < k; indx++)
-counts[indx + 1] += counts[indx];
-print_array(counts, k + 1);
-for (i = 0; i < size; i++)
 {
-sorted_arr[counts[array[i]] - 1] = array[i];
 counts[array[i]] += 1;
+}
+for (indx = 0; indx < k; indx++)
+{
+counts[indx + 1] += counts[indx];
+}
+print_array(counts, k + 1);
+for (i = size; i > 0; i--)
+{
+indx = counts[array[i - 1]] - 1;
+sorted_arr[indx] = array[i - 1];
+counts[array[i - 1]] -= 1;
 }
 for (i = 0; i < size; i++)
 array[i] = sorted_arr[i];
