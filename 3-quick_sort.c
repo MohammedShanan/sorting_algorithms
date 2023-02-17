@@ -9,30 +9,30 @@
  */
 size_t partition(int *array, int start, int end, size_t size)
 {
-    int pivot = array[end];
-    int i = start, j, tmp;
-    for (j = start; j < end; j++)
-    {
-        if (array[j] <= pivot)
-        {
-            if (i != j)
-            {
-                tmp = array[j];
-                array[j] = array[i];
-                array[i] = tmp;
-                print_array(array, size);
-            }
-            i++;
-        }
-    }
-    if (i != end)
-    {
-        tmp = array[i];
-        array[i] = pivot;
-        array[end] = tmp;
-        print_array(array, size);
-    }
-    return (i);
+int pivot = array[end];
+int i = start, j, tmp;
+for (j = start; j < end; j++)
+{
+if (array[j] <= pivot)
+{
+if (i != j)
+{
+tmp = array[j];
+array[j] = array[i];
+array[i] = tmp;
+print_array(array, size);
+}
+i++;
+}
+}
+if (i != end)
+{
+tmp = array[i];
+array[i] = pivot;
+array[end] = tmp;
+print_array(array, size);
+}
+return (i);
 }
 /**
  * _quick_sort - quick sorts with recursion
@@ -43,13 +43,13 @@ size_t partition(int *array, int start, int end, size_t size)
  */
 void _quick_sort(int *array, size_t size, int start, int end)
 {
-    int pivot_idx;
-    if (start < end)
-    {
-        pivot_idx = partition(array, start, end, size);
-        _quick_sort(array, size, start, pivot_idx - 1);
-        _quick_sort(array, size, pivot_idx + 1, end);
-    }
+int pivot_idx;
+if (start < end)
+{
+pivot_idx = partition(array, start, end, size);
+_quick_sort(array, size, start, pivot_idx - 1);
+_quick_sort(array, size, pivot_idx + 1, end);
+}
 }
 /**
  * quick_sort - quick sorts an array
@@ -58,9 +58,9 @@ void _quick_sort(int *array, size_t size, int start, int end)
  */
 void quick_sort(int *array, size_t size)
 {
-    if (array == NULL || size < 2)
-    {
-        return;
-    }
-    _quick_sort(array, size, 0, size - 1);
+if (array == NULL || size < 2)
+{
+return;
+}
+_quick_sort(array, size, 0, size - 1);
 }
