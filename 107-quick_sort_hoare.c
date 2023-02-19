@@ -1,7 +1,7 @@
 #include "sort.h"
 /**
  * partition - partitions the array
- * @array: array to take in
+ * @a: array to take in
  * @low: start of array;
  * @high: end of array
  * @size: full size of array
@@ -38,7 +38,7 @@ j--, i++;
 }
 /**
  * quicksort - quick sorts with recursion
- * @array: array to sort through
+ * @a: array to sort through
  * @lo: start of array or subarray
  * @hi: end of array or subarray
  * @size: size of full array
