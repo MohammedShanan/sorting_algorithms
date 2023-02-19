@@ -26,7 +26,7 @@ j--;
 
 if (i >= j)
 {
-return i;
+return (i);
 }
 
 tmp = a[j];
