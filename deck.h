@@ -2,7 +2,6 @@
 #define DECK_H
 #include "stdio.h"
 #include "stdlib.h"
-#include "strings.h"
 typedef enum kind_e
 {
     SPADE = 0,
@@ -38,13 +37,4 @@ typedef struct deck_node_s
     struct deck_node_s *next;
 } deck_node_t;
 void sort_deck(deck_node_t **deck);
-int _strlen(char *str)
-{
-    int i = 0;
-    while (str[i])
-    {
-        i++;
-    }
-    return (i);
-}
 #endif
