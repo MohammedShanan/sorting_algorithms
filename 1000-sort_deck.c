@@ -1,13 +1,4 @@
 #include "deck.h"
-int __strlen(const char *str)
-{
-    int i = 0;
-    while (str[i])
-    {
-        i++;
-    }
-    return (i);
-}
 void split_list(deck_node_t *head, deck_node_t **a, deck_node_t **b)
 {
     deck_node_t *fast, *slow;
@@ -28,6 +19,14 @@ void split_list(deck_node_t *head, deck_node_t **a, deck_node_t **b)
 }
 int compare_values(const char *v1, const char *v2)
 {
+    int len_v1 = 0, len_v2 = 0;
+    while (v1[len_v1] || v2[len_v2])
+    {
+        if (v1[len_v1])
+            len_v1++;
+        if (v2[len_v2])
+            len_v2++;
+    }
     if (v1[0] == 'A')
         return (0);
     else if (v2[0] == 'A')
@@ -42,9 +41,9 @@ int compare_values(const char *v1, const char *v2)
         else
             return (1);
     }
-    if (__strlen(v1) < __strlen(v2))
+    if (len_v1 < len_v2)
         return (0);
-    else if (__strlen(v1) > __strlen(v2))
+    else if (len_v1 > len_v2)
         return (1);
     else if (v1[0] < v2[0])
         return (0);
