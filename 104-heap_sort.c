@@ -48,12 +48,20 @@ heapify(arr, N, largest, size);
 void heap_sort(int *array, size_t size)
 {
 int i;
+if (array == NULL || size < 2)
+{
+return;
+}
 for (i = size / 2 - 1; i >= 0; i--)
 heapify(array, size, i, size);
 for (i = size - 1; i >= 0; i--)
 {
+if (i != 0)
+{    
 swap(&array[0], &array[i]);
 print_array(array, size);
+}
+
 heapify(array, i, 0, size);
 }
 }
