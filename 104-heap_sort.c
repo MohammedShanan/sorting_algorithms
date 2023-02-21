@@ -14,7 +14,7 @@ int temp = *a;
 *b = temp;
 }
 /**
- * heap_sort - heap sort algo
+ * heapify - create max heap
  * @arr: array sort
  * @N: size of heap
  * @i: index of root node
