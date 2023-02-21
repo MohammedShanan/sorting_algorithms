@@ -57,11 +57,10 @@ heapify(array, size, i, size);
 for (i = size - 1; i >= 0; i--)
 {
 if (i != 0)
-{    
+{
 swap(&array[0], &array[i]);
 print_array(array, size);
 }
-
 heapify(array, i, 0, size);
 }
 }
