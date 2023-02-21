@@ -89,7 +89,7 @@ array[i] = sorted[i];
 }
 div *= 10;
 len_max--;
+free(counts);
 }
 free(sorted);
-free(counts);
 }
