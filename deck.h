@@ -38,4 +38,13 @@ typedef struct deck_node_s
     struct deck_node_s *next;
 } deck_node_t;
 void sort_deck(deck_node_t **deck);
+int _strlen(char *str)
+{
+    int i = 0;
+    while (str[i])
+    {
+        i++;
+    }
+    return (i);
+}
 #endif

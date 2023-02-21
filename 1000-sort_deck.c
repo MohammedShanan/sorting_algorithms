@@ -33,9 +33,9 @@ int compare_values(const char *v1, const char *v2)
         else
             return (1);
     }
-    if (strlen(v1) < strlen(v2))
+    if (_strlen(v1) < _strlen(v2))
         return (0);
-    else if (strlen(v1) > strlen(v2))
+    else if (_strlen(v1) > _strlen(v2))
         return (1);
     else if (v1[0] < v2[0])
         return (0);
